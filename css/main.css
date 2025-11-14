@@ -1132,6 +1132,10 @@ video {
   background-color: ;
 }
 
+.bg-teal-700\/10 {
+  background-color: rgb(15 118 110 / 0.1);
+}
+
 .bg-opacity-70 {
   --tw-bg-opacity: 0.7;
 }
