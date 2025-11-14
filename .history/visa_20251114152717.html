@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Visa Services -  Lofish Global Travels & Tours</title>
+
+  <link rel="icon" type="image/png" href="img/logo_lofish.png" />
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <style>
+    /* small helper to keep font consistent */
+    body { font-family: 'Lato', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; };
+  </style>
+</head>
+
+<body class="antialiased text-gray-800 bg-teal-500/5">
+
+
+  <!-- ========================================================= -->
+  <!-- HEADER (EXACT COPY FROM ABOUT.HTML) -->
+  <!-- ========================================================= -->
+  <header class="sticky top-0 z-50 w-full bg-white shadow-sm">
+    <div class="flex items-center justify-between px-6 py-4 mx-auto max-w-7xl">
+        <a class="flex items-center gap-3" href="index.html">
+        <img src="img/logo_lofish.png" alt="Lofish logo" class="object-contain h-10 rounded-md w-14" />
+        <div>
+            <h1 class="text-lg font-semibold">Lofish Travel &amp; Tours Ltd.</h1>
+            <p class="text-xs text-gray-500">Abia • Enugu • Anambra</p>
+        </div>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="items-center hidden gap-6 md:flex">
+        <!-- Services dropdown (desktop) -->
+        <div class="relative" id="servicesDropdownWrapper">
+            <button id="servicesBtn" aria-expanded="false" class="flex items-center gap-2 py-1 text-sm font-medium text-gray-700  focus:outline-none group">
+            Services 
+            <i class="bi bi-chevron-down"></i>
+            <span class="absolute left-0 bottom-0 h-0.5 bg-teal-500 transition-all duration-300 w-full"></span>
+            </button>
+
+            <!-- dropdown panel -->
+            <div id="servicesDropdown" class="absolute right-0 invisible w-56 mt-2 transition-all origin-top-right transform scale-95 bg-white rounded-md shadow-lg opacity-0 pointer-events-none ring-1 ring-black ring-opacity-5">
+            <div class="py-2">
+                <a href="visa.html" class="block px-4 py-2 text-sm text-gray-700 bg-green-700/10">Visa Procurement</a>
+                <a href="flights.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-700/10">Flight Ticketing</a>
+                <a href="hotels.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-700/10">Hotel Reservations</a>
+                <a href="freight.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-700/10">Freight &amp; Customs</a>
+            </div>
+            </div>
+        </div>
+
+        <a href="about.html" class="relative block py-1 mb-2 text-sm font-medium text-gray-700 transition-all duration-500 cursor-pointer md:mb-0 lg:text-left group">About
+            <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-teal-500 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="contact.html" class="relative block py-1 mb-2 text-sm font-medium text-gray-700 transition-all duration-500 cursor-pointer  md:mb-0 lg:text-left group">Contact
+            <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-teal-500 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+
+        <button id="bookBtn" class="px-4 py-2 ml-4 font-medium text-black transition rounded-md shadow bg-gold hover:brightness-95">Book Now</button>
+        </nav>
+
+        <!-- Mobile toggle -->
+        <div class="flex items-center gap-2 md:hidden">
+        <button id="bookBtnMobile" class="px-3 py-2 text-sm font-medium text-black rounded-md bg-gold">Book</button>
+        <button id="menuBtn" aria-expanded="false" class="p-2 border rounded-md">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        </div>
+    </div>
+
+    <!-- Mobile menu (collapsible) -->
+    <div id="mobileMenu" class="hidden border-t md:hidden">
+        <div class="px-4 py-4 space-y-3">
+        <!-- Services with collapsible submenu -->
+        <div class="space-y-1">
+            <button id="mobileServicesBtn" aria-expanded="false" class="flex items-center justify-between w-full px-3 py-2 text-left rounded-md hover:bg-royalBlue/5">
+            <span class="font-medium">Services</span>
+            <svg class="w-4 h-4 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="mobileServicesPanel" class="hidden pl-4 space-y-1">
+            <a href="visa.html" class="block px-3 py-2 text-sm rounded-md hover:bg-royalBlue/5">Visa Procurement</a>
+            <a href="flights.html" class="block px-3 py-2 text-sm rounded-md hover:bg-royalBlue/5">Flight Ticketing</a>
+            <a href="hotels.html" class="block px-3 py-2 text-sm rounded-md hover:bg-royalBlue/5">Hotel Reservations</a>
+            <a href="freight.html" class="block px-3 py-2 text-sm rounded-md hover:bg-royalBlue/5">Freight &amp; Customs</a>
+            </div>
+        </div>
+
+        <a href="about.html" class="block px-3 py-2 rounded-md hover:bg-royalBlue/5">About</a>
+        <a href="contact.html" class="block px-3 py-2 rounded-md hover:bg-royalBlue/5">Contact</a>
+        </div>
+    </div>
+  </header>
+
+  <!-- ========================================================= -->
+  <!-- HERO SECTION -->
+  <!-- ========================================================= -->
+  <section class="relative overflow-hidden  bg-no-repeat bg-fixed bg-cover bg-center py-28" style="background-image:url('./img/services-hero.jpg');">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="relative z-10 max-w-4xl px-6 mx-auto text-center text-white">
+      <h1 class="mb-4 text-5xl font-extrabold">Visa Assistance</h1>
+      <p class="text-lg text-gray-200">
+        Simplifying your journey with expert visa procurement services for hassle-free travel worldwide.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ========================================================= -->
+    <<main class="max-w-6xl px-6 py-20 mx-auto">
+  <!-- INTRO SECTION -->
+  <section class="grid items-center gap-10 mb-20 md:grid-cols-2">
+    <div>
+      <h2 class="mb-4 text-4xl font-extrabold text-teal-700">Visa Assistance — Faster, Easier, Stress‑Free</h2>
+      <p class="text-lg leading-relaxed text-gray-700">
+        Get your visa approved with confidence. At <strong>Lofish Global Travels & Tours</strong>, we blend expertise, accuracy, and personalized support to ensure your visa application meets every requirement — the first time.
+      </p>
+      <p class="mt-4 text-gray-700 leading-relaxed">
+        Whether you're traveling for <strong>tourism</strong>, <strong>business</strong>, <strong>education</strong>, or <strong>family visits</strong>, our experienced team handles the details from start to finish.
+      </p>
+    </div>
+
+    <div>
+      <img src="https://images.unsplash.com/photo-1581092334641-1f9b0b81e5e1?auto=format&fit=crop&w=900&q=80" class="rounded-2xl shadow-lg" alt="Visa assistance" />
+    </div>
+  </section>
+
+  <!-- VISA CATEGORIES -->
+  <section class="mb-20">
+    <h3 class="mb-6 text-3xl font-bold text-royalblue">Visa Types We Process</h3>
+
+    <div class="grid gap-8 md:grid-cols-3">
+      <div class="p-6 transition bg-white shadow rounded-2xl hover:-translate-y-2">
+        <i class="text-3xl bi bi-airplane-engines-fill text-gold"></i>
+        <h4 class="mt-3 mb-2 text-xl font-semibold text-gray-800">Tourist & Visitor Visas</h4>
+        <p class="text-gray-600 text-sm leading-relaxed">Perfect for vacations, family visits, medical trips, and short-term travel.</p>
+      </div>
+
+      <div class="p-6 transition bg-white shadow rounded-2xl hover:-translate-y-2">
+        <i class="text-3xl bi bi-mortarboard-fill text-gold"></i>
+        <h4 class="mt-3 mb-2 text-xl font-semibold text-gray-800">Student Visas</h4>
+        <p class="text-gray-600 text-sm leading-relaxed">For undergraduate, postgraduate, vocational studies, and exchange programs.</p>
+      </div>
+
+      <div class="p-6 transition bg-white shadow rounded-2xl hover:-translate-y-2">
+        <i class="text-3xl bi bi-briefcase-fill text-gold"></i>
+        <h4 class="mt-3 mb-2 text-xl font-semibold text-gray-800">Business & Work Visas</h4>
+        <p class="text-gray-600 text-sm leading-relaxed">For conferences, work permits, corporate travel, and professional opportunities.</p>
+      </div>
+
+      <div class="p-6 transition bg-white shadow rounded-2xl hover:-translate-y-2">
+        <i class="text-3xl bi bi-people-fill text-gold"></i>
+        <h4 class="mt-3 mb-2 text-xl font-semibold text-gray-800">Family & Dependent Visas</h4>
+        <p class="text-gray-600 text-sm leading-relaxed">Reunite with loved ones abroad with accurate and complete documentation.</p>
+      </div>
+
+      <div class="p-6 transition bg-white shadow rounded-2xl hover:-translate-y-2">
+        <i class="text-3xl bi bi-globe2 text-gold"></i>
+        <h4 class="mt-3 mb-2 text-xl font-semibold text-gray-800">Transit Visas</h4>
+        <p class="text-gray-600 text-sm leading-relaxed">Short stopovers or connecting flights made easy.</p>
+      </div>
+
+      <div class="p-6 transition bg-white shadow rounded-2xl hover:-translate-y-2">
+        <i class="text-3xl bi bi-passport-fill text-gold"></i>
+        <h4 class="mt-3 mb-2 text-xl font-semibold text-gray-800">Permanent Residency Support</h4>
+        <p class="text-gray-600 text-sm leading-relaxed">Guidance for migration pathways and long‑term settlement abroad.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR PROCESS -->
+  <section class="mb-20">
+    <h3 class="mb-6 text-3xl font-bold text-royalblue">Our 5‑Step Visa Process</h3>
+
+    <div class="grid gap-10 md:grid-cols-5">
+      <div class="p-5 text-center bg-white shadow rounded-xl">
+        <div class="text-3xl font-bold text-teal-700">01</div>
+        <p class="mt-2 text-sm text-gray-700">Consultation & Eligibility Check</p>
+      </div>
+
+      <div class="p-5 text-center bg-white shadow rounded-xl">
+        <div class="text-3xl font-bold text-teal-700">02</div>
+        <p class="mt-2 text-sm text-gray-700">Document Review & Advisory</p>
+      </div>
+
+      <div class="p-5 text-center bg-white shadow rounded-xl">
+        <div class="text-3xl font-bold text-teal-700">03</div>
+        <p class="mt-2 text-sm text-gray-700">Form Completion & Application Prep</p>
+      </div>
+
+      <div class="p-5 text-center bg-white shadow rounded-xl">
+        <div class="text-3xl font-bold text-teal-700">04</div>
+        <p class="mt-2 text-sm text-gray-700">Submission & Tracking</p>
+      </div>
+
+      <div class="p-5 text-center bg-white shadow rounded-xl">
+        <div class="text-3xl font-bold text-teal-700">05</div>
+        <p class="mt-2 text-sm text-gray-700">Collection & Travel Readiness</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="mb-20">
+    <h3 class="mb-6 text-3xl font-bold text-royalblue">Why Clients Trust Us</h3>
+
+    <div class="grid gap-8 md:grid-cols-2">
+      <div class="p-6 bg-white shadow rounded-2xl">
+        <h4 class="mb-2 text-xl font-semibold text-gray-800"><i class="bi bi-check-circle-fill text-gold mr-2"></i>High Success Rate</h4>
+        <p class="text-gray-600 leading-relaxed">Our detailed reviews and expert guidance significantly improve your chances of approval.</p>
+      </div>
+
+      <div class="p-6 bg-white shadow rounded-2xl">
+        <h4 class="mb-2 text-xl font-semibold text-gray-800"><i class="bi bi-lightning-charge-fill text-gold mr-2"></i>Fast Processing</h4>
+        <p class="text-gray-600 leading-relaxed">We reduce delays by ensuring your documentation meets embassy standards the first time.</p>
+      </div>
+
+      <div class="p-6 bg-white shadow rounded-2xl">
+        <h4 class="mb-2 text-xl font-semibold text-gray-800"><i class="bi bi-people-fill text-gold mr-2"></i>Personalized Support</h4>
+        <p class="text-gray-600 leading-relaxed">Every client receives one‑on‑one attention tailored to their travel purpose.</p>
+      </div>
+
+      <div class="p-6 bg-white shadow rounded-2xl">
+        <h4 class="mb-2 text-xl font-semibold text-gray-800"><i class="bi bi-shield-lock-fill text-gold mr-2"></i>Confidential & Secure</h4>
+        <p class="text-gray-600 leading-relaxed">Your documents and personal information are handled with the highest level of privacy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENHANCED SECTIONS BELOW -->
+
+  <!-- FAQ SECTION -->
+  <section class="mb-24">
+    <h3 class="mb-6 text-3xl font-bold text-royalblue text-center">Frequently Asked Questions</h3>
+    <div class="max-w-3xl mx-auto space-y-4">
+      <details class="p-5 bg-white shadow rounded-xl cursor-pointer">
+        <summary class="font-semibold text-gray-800">How long does visa processing take?</summary>
+        <p class="mt-3 text-gray-600 leading-relaxed">Processing time varies depending on the country and visa type. We provide estimated timelines and constant tracking updates.</p>
+      </details>
+      <details class="p-5 bg-white shadow rounded-xl cursor-pointer">
+        <summary class="font-semibold text-gray-800">Can I apply without all documents ready?</summary>
+        <p class="mt-3 text-gray-600 leading-relaxed">Our team reviews what you have and advises on what’s missing, including acceptable alternatives when possible.</p>
+      </details>
+      <details class="p-5 bg-white shadow rounded-xl cursor-pointer">
+        <summary class="font-semibold text-gray-800">Do you assist with embassy interviews?</summary>
+        <p class="mt-3 text-gray-600 leading-relaxed">Yes — we provide mock interviews, tips, and full preparation guidance based on each country's specific expectations.</p>
+      </details>
+      <details class="p-5 bg-white shadow rounded-xl cursor-pointer">
+        <summary class="font-semibold text-gray-800">Can you help with visa refusals?</summary>
+        <p class="mt-3 text-gray-600 leading-relaxed">We review refusal notes, identify issues, and guide you through a stronger reapplication strategy.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- DOCUMENT CHECKLIST SECTION -->
+  <section class="mb-24">
+    <h3 class="mb-6 text-3xl font-bold text-royalblue">General Visa Document Checklist</h3>
+    <p class="mb-6 text-gray-700">While requirements differ across embassies, most visa applications typically include:</p>
+
+    <div class="grid gap-8 md:grid-cols-2">
+      <ul class="p-6 bg-white shadow rounded-xl space-y-3 text-gray-700 list-disc list-inside">
+        <li>Valid international passport (minimum 6-month validity)</li>
+        <li>Passport-sized photographs</li>
+        <li>Completed visa application form</li>
+        <li>Travel itinerary or flight reservation</li>
+        <li>Proof of accommodation / hotel booking</li>
+      </ul>
+
+      <ul class="p-6 bg-white shadow rounded-xl space-y-3 text-gray-700 list-disc list-inside">
+        <li>Bank statements (3–6 months)</li>
+        <li>Employment letter or business registration</li>
+        <li>Sponsorship or invitation documents (if applicable)</li>
+        <li>Travel insurance</li>
+        <li>Additional country-specific requirements</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- COUNTRY-SPECIFIC VISA SUPPORT HIGHLIGHT -->
+  <section class="mb-24">
+    <h3 class="mb-6 text-3xl font-bold text-royalblue">Popular Destinations We Support</h3>
+
+    <div class="grid gap-8 md:grid-cols-4">
+      <div class="p-6 text-center bg-white shadow rounded-xl">
+        <img src="https://flagsapi.com/CA/flat/64.png" class="mx-auto mb-3" alt="Canada" />
+        <h4 class="font-semibold text-gray-800">Canada</h4>
+      </div>
+
+      <div class="p-6 text-center bg-white shadow rounded-xl">
+        <img src="https://flagsapi.com/US/flat/64.png" class="mx-auto mb-3" alt="USA" />
+        <h4 class="font-semibold text-gray-800">United States</h4>
+      </div>
+
+      <div class="p-6 text-center bg-white shadow rounded-xl">
+        <img src="https://flagsapi.com/GB/flat/64.png" class="mx-auto mb-3" alt="UK" />
+        <h4 class="font-semibold text-gray-800">United Kingdom</h4>
+      </div>
+
+      <div class="p-6 text-center bg-white shadow rounded-xl">
+        <img src="https://flagsapi.com/AU/flat/64.png" class="mx-auto mb-3" alt="Australia" />
+        <h4 class="font-semibold text-gray-800">Australia</h4>
+      </div>
+
+      <div class="p-6 text-center bg-white shadow rounded-xl">
+        <img src="https://flagsapi.com/DE/flat/64.png" class="mx-auto mb-3" alt="Germany" />
+        <h4 class="font-semibold text-gray-800">Germany</h4>
+      </div>
+
+      <div class="p-6 text-center bg-white shadow rounded-xl">
+        <img src="https://flagsapi.com/FR/flat/64.png" class="mx-auto mb-3" alt="France" />
+        <h4 class="font-semibold text-gray-800">France</h4>
+      </div>
+
+      <div class="p-6 text-center bg-white shadow rounded-xl">
+        <img src="https://flagsapi.com/CN/flat/64.png" class="mx-auto mb-3" alt="China" />
+        <h4 class="font-semibold text-gray-800">China</h4>
+      </div>
+
+      <div class="p-6 text-center bg-white shadow rounded-xl">
+        <img src="https://flagsapi.com/AE/flat/64.png" class="mx-auto mb-3" alt="UAE" />
+        <h4 class="font-semibold text-gray-800">UAE</h4>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- DOWNLOADABLE CHECKLIST SECTION -->
+  <section class="mb-24 text-center">
+    <h3 class="mb-4 text-3xl font-bold text-royalblue">Download Visa Checklist</h3>
+    <p class="mb-6 text-gray-700">Get a ready-made PDF checklist containing essential visa requirements to help you prepare with ease.</p>
+    <a href="#" class="inline-block px-8 py-3 font-semibold text-black transition bg-gold rounded-md hover:bg-yellow-400">Download PDF</a>
+  </section>
+
+  <!-- VISA REQUEST FORM -->
+  <section class="max-w-4xl p-8 mx-auto mb-24 bg-white shadow-lg rounded-2xl">
+    <h3 class="mb-6 text-3xl font-bold text-royalblue">Request Visa Assistance</h3>
+    <p class="mb-6 text-gray-700">Fill out the form below and our team will contact you within 24 hours.</p>
+
+    <form class="grid gap-6 md:grid-cols-2">
+      <div>
+        <label class="block mb-2 text-sm font-semibold text-gray-700">Full Name</label>
+        <input type="text" class="w-full p-3 border rounded-md" placeholder="Enter full name">
+      </div>
+
+      <div>
+        <label class="block mb-2 text-sm font-semibold text-gray-700">Email Address</label>
+        <input type="email" class="w-full p-3 border rounded-md" placeholder="Enter email">
+      </div>
+
+      <div>
+        <label class="block mb-2 text-sm font-semibold text-gray-700">Phone Number</label>
+        <input type="text" class="w-full p-3 border rounded-md" placeholder="Enter phone number">
+      </div>
+
+      <div>
+        <label class="block mb-2 text-sm font-semibold text-gray-700">Visa Type</label>
+        <select class="w-full p-3 border rounded-md">
+          <option>Select Visa Type</option>
+          <option>Tourist / Visitor Visa</option>
+          <option>Student Visa</option>
+          <option>Business / Work Visa</option>
+          <option>Family / Dependent Visa</option>
+          <option>Transit Visa</option>
+          <option>Permanent Residency Pathway</option>
+        </select>
+      </div>
+
+      <div class="md:col-span-2">
+        <label class="block mb-2 text-sm font-semibold text-gray-700">Message</label>
+        <textarea class="w-full p-3 border rounded-md" rows="5" placeholder="Tell us more about your travel or visa needs..."></textarea>
+      </div>
+
+      <div class="md:col-span-2 text-center">
+        <button class="px-10 py-3 font-semibold text-white transition bg-teal-700 rounded-md hover:bg-teal-800">Submit Request</button>
+      </div>
+    </form>
+  </section>
+
+</main>
+
+    
+
+    <!-- CTA SECTION -->
+    <!-- ========================================================= -->
+  <section class="relative py-20 text-center text-white bg-fixed bg-center bg-cover"
+    style="background-image:url('./img/cta.jpg');">
+    <div class="absolute inset-0 bg-black/70"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-6">
+        <h3 class="text-3xl font-bold text-teal-700 mb-4">Start Your Visa Journey Today</h3>
+        <p class="text-gray-300 text-lg leading-relaxed mb-10">
+        Avoid errors, delays, and unnecessary stress. Let our experts guide you from start to finish.
+        <br />
+        <strong>Your destination is closer than you think.</strong>
+        </p>
+
+      <a href="contact.html"
+        class="px-8 mt-20 py-3 font-semibold text-black bg-gold rounded-md hover:bg-yellow-400 transition-colors duration-300">
+        Contact Us
+      </a>
+    </div>
+  </section>
+
+
+
+  <!-- ========================================================= -->
+  <!-- FOOTER (EXACT COPY FROM ABOUT PAGE) -->
+  <!-- ========================================================= -->
+  <footer class="py-10 text-gray-300 bg-gray-900">
+    <div class="grid gap-8 px-6 mx-auto max-w-7xl md:grid-cols-3">
+      <div>
+        <h3 class="mb-4 text-xl font-bold text-gold">Lofish Global Travels</h3>
+        <p class="text-sm text-gray-400">
+          Empowering global experiences through trusted travel, education, and logistics services from Nigeria to the world.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="mb-4 text-xl font-bold text-gold">Quick Links</h3>
+        <div class="space-x-4 space-y-4 text-sm">
+          <a href="index.html" class="hover:text-gold">Home</a>
+          <a href="about.html" class="hover:text-gold">About</a>
+          <a href="services.html" class="hover:text-gold">Services</a>
+          <a href="contact.html" class="hover:text-gold">Contact</a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="mb-4 text-xl font-bold text-gold">Follow Us</h3>
+        <div class="flex space-x-4 gap-4 text-lg">
+          <a href="#" class="hover:text-gold"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="hover:text-gold"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="hover:text-gold"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="hover:text-gold"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="mx-auto mt-6 w-[95%]">
+    <div class="mt-10 text-sm text-center text-gray-500">
+      © 2025 Lofish Global Travels & Tours. All rights reserved.
+    </div>
+  </footer>
+
+
+
+  <!-- ========================================================= -->
+  <!-- SCRIPTS (EXACT COPY FROM ABOUT PAGE) -->
+  <!-- ========================================================= -->
+  <script>
+    // Header toggles
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const bookBtn = document.getElementById('bookBtn');
+    const bookBtnMobile = document.getElementById('bookBtnMobile');
+    const bookingModal = document.getElementById('bookingModal');
+    const closeModal = document.getElementById('closeModal');
+    const modalCancel = document.getElementById('modalCancel');
+
+    menuBtn?.addEventListener('click', () => {
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!expanded));
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Desktop Services dropdown
+    const servicesBtn = document.getElementById('servicesBtn');
+    const servicesDropdown = document.getElementById('servicesDropdown');
+    const servicesWrapper = document.getElementById('servicesDropdownWrapper');
+
+    function openServices() {
+      servicesDropdown.classList.remove('invisible', 'opacity-0', 'pointer-events-none', 'scale-95');
+      servicesDropdown.classList.add('visible', 'opacity-100', 'pointer-events-auto', 'scale-100');
+      servicesBtn.setAttribute('aria-expanded', 'true');
+    }
+    function closeServices() {
+      servicesDropdown.classList.add('invisible', 'opacity-0', 'pointer-events-none', 'scale-95');
+      servicesDropdown.classList.remove('visible', 'opacity-100', 'pointer-events-auto', 'scale-100');
+      servicesBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    servicesBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const expanded = servicesBtn.getAttribute('aria-expanded') === 'true';
+      if (expanded) closeServices();
+      else openServices();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!servicesWrapper.contains(e.target)) closeServices();
+    });
+
+    const mobileServicesBtn = document.getElementById('mobileServicesBtn');
+    const mobileServicesPanel = document.getElementById('mobileServicesPanel');
+    mobileServicesBtn?.addEventListener('click', () => {
+      const expanded = mobileServicesBtn.getAttribute('aria-expanded') === 'true';
+      mobileServicesBtn.setAttribute('aria-expanded', String(!expanded));
+      mobileServicesPanel.classList.toggle('hidden');
+    });
+
+    // Booking modal
+    ;[bookBtn, bookBtnMobile].forEach(b => b?.addEventListener('click', () => {
+      bookingModal.classList.remove('hidden');
+      bookingModal.querySelector('input')?.focus();
+    }));
+    closeModal?.addEventListener('click', () => bookingModal.classList.add('hidden'));
+    modalCancel?.addEventListener('click', () => bookingModal.classList.add('hidden'));
+    bookingModal?.addEventListener('click', (e) => {
+      if (e.target === bookingModal) bookingModal.classList.add('hidden');
+    });
+
+    // Reveal animation
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('opacity-100', 'translate-y-0');
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    document.querySelectorAll('article, section > .p-6').forEach(el => {
+      el.classList.add('opacity-0', 'translate-y-6', 'transition', 'duration-700');
+      obs.observe(el);
+    });
+  </script>
+
+</body>
+
+</html>
