@@ -1,0 +1,16 @@
+@tailwind base; 
+@import "tailwindcss";
+:root{
+    --primary: #0b6b78; /* primary teal-ish (replace if you have exact) */
+    --accent:  #ff8a00; /* warm accent */
+    --muted:   #f5f7fa;
+}
+.brand-primary{ background-color:var(--primary); color: white }
+.brand-accent{ background-color:var(--accent); color: white }
+
+/* Simple floating animation for hero image */
+@keyframes floaty{ 0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)} }
+.floaty{ animation: floaty 6s ease-in-out infinite }
+
+/* subtle glass card */
+.glass { background: rgba(255,255,255,0.6); backdrop-filter: blur(6px); }

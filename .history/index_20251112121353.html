@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lofish Travel and Tours</title>
+
+  <link rel="icon" type="image/png" href="img/logo_lofish.png" />
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* small helper to keep font consistent */
+    body { font-family: 'Lato', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+  </style>
+</head>
+<body class="antialiased text-gray-800 bg-teal-500/5">
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 w-full bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a class="flex items-center gap-3" href="index.html">
+        <img src="img/logo_lofish.png" alt="Lofish logo" class="h-10 w-14 object-contain rounded-md" />
+        <div>
+          <h1 class="text-lg font-semibold">Lofish Travel &amp; Tours Ltd.</h1>
+          <p class="text-xs text-gray-500">Lagos • Enugu • Abuja</p>
+        </div>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-6">
+        <!-- Services dropdown (desktop) -->
+        <div class="relative" id="servicesDropdownWrapper">
+          <button id="servicesBtn" aria-expanded="false" class="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-teal-500 focus:outline-none group">
+            Services 
+            <i class="bi bi-chevron-down"></i>
+            <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-teal-500 transition-all duration-300 group-hover:w-full"></span>
+          </button>
+
+          <!-- dropdown panel -->
+          <div id="servicesDropdown" class="invisible opacity-0 pointer-events-none absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 transition-all transform origin-top-right scale-95">
+            <div class="py-2">
+              <a href="visa.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-700/10">Visa Procurement</a>
+              <a href="flights.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-700/10">Flight Ticketing</a>
+              <a href="hotels.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-700/10">Hotel Reservations</a>
+              <a href="freight.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-700/10">Freight &amp; Customs</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="about.html" class="text-sm text-gray-700 hover:text-teal-500 relative block mb-2  font-medium  transition-all duration-500 cursor-pointer md:mb-0 lg:text-left group group">About
+          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-teal-500 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="contact.html" class="text-sm text-gray-700 hover:text-teal-500 relative block mb-2  font-medium  transition-all duration-500 cursor-pointer md:mb-0 lg:text-left group group">Contact
+          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-teal-500 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+
+        <button id="bookBtn" class="ml-4 px-4 py-2 rounded-md bg-gold text-black font-medium shadow hover:brightness-95 transition">Book Now</button>
+      </nav>
+
+      <!-- Mobile toggle -->
+      <div class="md:hidden flex items-center gap-2">
+        <button id="bookBtnMobile" class="px-3 py-2 rounded-md bg-gold text-black text-sm font-medium">Book</button>
+        <button id="menuBtn" aria-expanded="false" class="p-2 rounded-md border">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu (collapsible) -->
+    <div id="mobileMenu" class="md:hidden hidden border-t">
+      <div class="px-4 py-4 space-y-3">
+        <!-- Services with collapsible submenu -->
+        <div class="space-y-1">
+          <button id="mobileServicesBtn" aria-expanded="false" class="w-full flex items-center justify-between px-3 py-2 text-left rounded-md hover:bg-royalblue/5">
+            <span class="font-medium">Services</span>
+            <svg class="w-4 h-4 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div id="mobileServicesPanel" class="pl-4 hidden space-y-1">
+            <a href="visa.html" class="block px-3 py-2 rounded-md text-sm hover:bg-royalblue/5">Visa Procurement</a>
+            <a href="flights.html" class="block px-3 py-2 rounded-md text-sm hover:bg-royalblue/5">Flight Ticketing</a>
+            <a href="hotels.html" class="block px-3 py-2 rounded-md text-sm hover:bg-royalblue/5">Hotel Reservations</a>
+            <a href="freight.html" class="block px-3 py-2 rounded-md text-sm hover:bg-royalblue/5">Freight &amp; Customs</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="block px-3 py-2 rounded-md hover:bg-royalblue/5">About</a>
+        <a href="contact.html" class="block px-3 py-2 rounded-md hover:bg-royalblue/5">Contact</a>
+      </div>
+    </div>
+  </header>
+  <!-- HERO -->
+  <div class="w-full px-6 mb-10 text-sm text-center text-white bg-green-700 py-2 rounded bg-fixed bg-center bg-no-repeat bg-cover" style="background-image: url('./img/homeslide.jpg'); background-blend-mode: darken; background-color: rgba(10, 63, 30, 0.6);">
+    <section class="grid items-center gap-10 lg:grid-cols-2">
+      <div>
+        <h2 class="text-4xl font-extrabold leading-tight">Explore the world with <span class="text-royalblue">Lofish Travel</span></h2>
+        <p class="mt-4 text-gray-50">Professional, reliable and localised travel services — visa assistance, flight booking, hotel reservations, freight &amp; customs support, and more.</p>
+
+        <div class="flex gap-3 mt-6">
+          <button id="quickQuote" class="px-5 py-3 rounded-md bg-slateGray text-white shadow hover:scale-[1.01] transition">Get a Quote</button>
+          <a href="services.html" class="px-5 py-3 border border-gray-200 rounded-md text-sm">View Services</a>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3 mt-8 text-sm text-gray-600 text-wrap">
+          <div class="p-4 rounded-md shadow-sm bg-white/60 backdrop-blur-sm">
+            <div class="font-semibold">Offices</div>
+            <div class="text-xs">Lagos • Enugu • Abuja</div>
+          </div>
+          <div class="p-4 rounded-md shadow-sm bg-white/60 backdrop-blur-sm">
+            <div class="font-semibold">Contact</div>
+            <div class="text-xs">info@lofishgtravels&tours.com</div>
+          </div>
+          <div class="p-4 rounded-md shadow-sm bg-white/60 backdrop-blur-sm">
+            <div class="font-semibold">Support</div>
+            <div class="text-xs">+234 706 295 8388</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="w-full overflow-hidden shadow-xl rounded-2xl floaty">
+          <!-- Using Tailwind's built-in animate-bounce for a subtle motion; change later in config for custom keyframes -->
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=60" alt="travel" class="object-cover w-full h-80 rounded-2xl animate-bounce/60" />
+        </div>
+
+        <!-- floating badge -->
+        <div class="absolute top-6 right-6 p-3 rounded-lg shadow-md bg-white/80 backdrop-blur-sm">
+          <div class="text-xs text-gray-500">Trusted since 2023</div>
+          <div class="font-semibold text-green-500">Fast &amp; Reliable</div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- SERVICES -->
+  <section id="services" class="mt-16 px-10">
+    <h3 class="text-2xl font-bold">Our Services</h3>
+    <p class="mt-2 text-gray-600">A curated set of services for personal and corporate travellers.</p>
+
+    <div class="grid gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Service card (repeatable) -->
+      <article class="p-6 transition transform bg-white shadow rounded-xl hover:shadow-lg hover:-translate-y-1">
+        <div class="flex items-center gap-4">
+          <div class="flex items-center justify-center w-12 h-12 text-white rounded-lg bg-teal-800">V</div>
+          <div>
+            <h4 class="font-semibold">Visa Procurement</h4>
+            <p class="text-sm text-gray-500">End-to-end visa application assistance.</p>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mt-4">
+          <a class="text-sm text-teal-500" href="#">Learn more</a>
+          <button class="px-3 py-1 border rounded-md hover:bg-teal-600 hover:text-white">Request</button>
+        </div>
+      </article>
+
+      <article class="p-6 transition transform bg-white shadow rounded-xl hover:shadow-lg hover:-translate-y-1">
+        <div class="flex items-center gap-4">
+          <div class="flex items-center justify-center w-12 h-12 text-white rounded-lg bg-teal-800">H</div>
+          <div>
+            <h4 class="font-semibold">Hotel Reservations</h4>
+            <p class="text-sm text-gray-500">Book hotels with transparent pricing.</p>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mt-4">
+          <a class="text-sm text-teal-500" href="#">Booking Now</a>
+          <button class="px-3 py-1 border rounded-md">Request</button>
+        </div>
+      </article>
+
+      <article class="p-6 transition transform bg-white shadow rounded-xl hover:shadow-lg hover:-translate-y-1">
+        <div class="flex items-center gap-4">
+          <div class="flex items-center justify-center w-12 h-12 text-white rounded-lg bg-teal-800">F</div>
+          <div>
+            <h4 class="font-semibold">Flight Ticketing</h4>
+            <p class="text-sm text-gray-500">Competitive fares and itinerary support.</p>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mt-4">
+          <a class="text-sm text-teal-500" href="#">Learn more</a>
+          <button class="px-3 py-1 border rounded-md">Request</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <!-- ABOUT -->
+  <section id="about" class="grid items-center gap-8 mt-16 lg:grid-cols-2">
+    <div>
+      <h3 class="text-2xl font-bold">About Lofish Travel</h3>
+      <p class="mt-3 text-gray-600">With offices across Nigeria, we specialise in making international travel easy for our clients. From document processing to corporate moves and freight forwarding — we manage it end-to-end.</p>
+
+      <ul class="mt-4 space-y-2 text-sm text-gray-600">
+        <li>Local support in Lagos, Enugu &amp; Abuja</li>
+        <li>Experienced travel consultants</li>
+        <li>Corporate &amp; personal packages</li>
+      </ul>
+    </div>
+
+    <div class="p-6 bg-white shadow rounded-xl">
+      <h4 class="font-semibold">Quick contact</h4>
+      <form id="contactForm" class="grid gap-3 mt-4">
+        <input class="p-3 border rounded" placeholder="Full name" required />
+        <input class="p-3 border rounded" placeholder="Email or phone" required />
+        <select class="p-3 border rounded">
+          <option>I'm enquiring about...</option>
+          <option>Visa</option>
+          <option>Flights</option>
+          <option>Hotels</option>
+        </select>
+        <textarea class="p-3 border rounded" placeholder="Message" rows="3"></textarea>
+        <div class="flex gap-3">
+          <button type="submit" class="px-4 py-2 rounded bg-teal-500 text-white">Send</button>
+          <button type="button" id="callBtn" class="px-4 py-2 border rounded">Call +234 706 295 8388</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT / FOOTER -->
+  <section id="contact" class="mt-16 max-w-full bg-black/10">
+    <div class="grid gap-6 md:grid-cols-3 py-10 px-6">
+      <div class="p-6 bg-white rounded-lg shadow">
+        <h5 class="font-semibold">Contact</h5>
+        <p class="mt-2 text-sm text-gray-600">info@lofishglobaltravelsandtours.com<br>+234 706 295 8388</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow">
+        <h5 class="font-semibold">Offices</h5>
+        <p class="mt-2 text-sm text-gray-600">Lagos • Enugu • Abuja • Port Harcourt</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow">
+        <h5 class="font-semibold">Quick links</h5>
+        <div class="mt-2 space-y-1 space-x-4 text-sm text-gray-600">
+          <a href="#">Services</a>
+          <a href="#">FAQs</a>
+          <a href="#">Login / Sign up</a>
+        </div>
+        <div class="mt-2 space-y-1 space-x-4 text-sm text-gray-600">
+  <a href="#" class="transition-all duration-300 p-1 rounded-lg hover:bg-gradient-to-bl hover:text-white hover:from-purple-600 hover:via-pink-500 hover:to-amber-400"><i class="bi bi-instagram"></i></a>
+          <a href="#" CL><i class="bi bi-twitter-x"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+  </section> 
+  <footer class="p-4 text-sm text-center w-full bg-darkGreen text-gray-50">© 2025 Lofish Travel &amp; Tour Ltd. All Rights Reserved.</footer>
+
+    
+  
+
+  <!-- Booking modal (simple) -->
+  <div id="bookingModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40">
+    <div class="w-full max-w-xl p-6 bg-white shadow-lg rounded-xl mx-4">
+      <div class="flex items-center justify-between">
+        <h4 class="font-semibold">Book a service</h4>
+        <button id="closeModal" class="text-gray-600">✕</button>
+      </div>
+      <form class="grid gap-3 mt-4">
+        <input class="p-3 border rounded" placeholder="Full name" required />
+        <input class="p-3 border rounded" placeholder="Email or phone" required />
+        <select class="p-3 border rounded">
+          <option>Visa Procurement</option>
+          <option>Hotel Reservation</option>
+          <option>Flight Ticketing</option>
+        </select>
+        <div class="flex justify-end gap-3">
+          <button type="button" id="modalCancel" class="px-4 py-2 border rounded">Cancel</button>
+          <button type="submit" class="px-4 py-2 rounded bg-teal-500 text-white">Confirm</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Header toggles
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const bookBtn = document.getElementById('bookBtn');
+    const bookBtnMobile = document.getElementById('bookBtnMobile');
+    const bookingModal = document.getElementById('bookingModal');
+    const closeModal = document.getElementById('closeModal');
+    const modalCancel = document.getElementById('modalCancel');
+
+    menuBtn?.addEventListener('click', () => {
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!expanded));
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Desktop Services dropdown
+    const servicesBtn = document.getElementById('servicesBtn');
+    const servicesDropdown = document.getElementById('servicesDropdown');
+    const servicesWrapper = document.getElementById('servicesDropdownWrapper');
+
+    function openServices() {
+      servicesDropdown.classList.remove('invisible','opacity-0','pointer-events-none','scale-95');
+      servicesDropdown.classList.add('visible','opacity-100','pointer-events-auto','scale-100');
+      servicesBtn.setAttribute('aria-expanded','true');
+    }
+    function closeServices() {
+      servicesDropdown.classList.add('invisible','opacity-0','pointer-events-none','scale-95');
+      servicesDropdown.classList.remove('visible','opacity-100','pointer-events-auto','scale-100');
+      servicesBtn.setAttribute('aria-expanded','false');
+    }
+
+    servicesBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const expanded = servicesBtn.getAttribute('aria-expanded') === 'true';
+      if (expanded) closeServices(); else openServices();
+    });
+
+    // Close dropdown if clicking outside
+    document.addEventListener('click', (e) => {
+      if (!servicesWrapper.contains(e.target)) closeServices();
+    });
+
+    // Mobile Services collapsible
+    const mobileServicesBtn = document.getElementById('mobileServicesBtn');
+    const mobileServicesPanel = document.getElementById('mobileServicesPanel');
+    mobileServicesBtn?.addEventListener('click', () => {
+      const expanded = mobileServicesBtn.getAttribute('aria-expanded') === 'true';
+      mobileServicesBtn.setAttribute('aria-expanded', String(!expanded));
+      mobileServicesPanel.classList.toggle('hidden');
+    });
+
+    // Booking modal toggles
+    ;[bookBtn, bookBtnMobile].forEach(b => b?.addEventListener('click', () => {
+      bookingModal.classList.remove('hidden');
+      // small focus trap
+      bookingModal.querySelector('input')?.focus();
+    }));
+    closeModal?.addEventListener('click', () => bookingModal.classList.add('hidden'));
+    modalCancel?.addEventListener('click', () => bookingModal.classList.add('hidden'));
+    bookingModal?.addEventListener('click', (e) => {
+      if (e.target === bookingModal) bookingModal.classList.add('hidden');
+    });
+
+    // Intersection observer for light reveal animations
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('opacity-100','translate-y-0');
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('article, section > .p-6, .bg-white/60').forEach(el => {
+      el.classList.add('opacity-0','translate-y-6','transition','duration-700');
+      obs.observe(el);
+    });
+
+    // Demo contact form submit
+    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert("Thanks — we'll reach out shortly!");
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

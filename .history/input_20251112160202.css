@@ -1,0 +1,12 @@
+@tailwind base; 
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+
+/* Simple floating animation for hero image */
+@keyframes floaty{ 0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)} }
+.floaty{ animation: floaty 10s ease-in-out infinite; }
+
+/* subtle glass card */
+.glass { background: rgba(255,255,255,0.6); backdrop-filter: blur(6px); }

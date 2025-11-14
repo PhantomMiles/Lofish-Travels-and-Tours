@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services | Lofish Global Travels & Tours</title>
+
+  <link rel="icon" type="image/png" href="img/logo_lofish.png" />
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    /* small helper to keep font consistent */
+    body { font-family: 'Lato', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; };
+  </style>
+</head>
+
+<body class="antialiased text-gray-800 bg-teal-500/5">
+
+
+  <!-- ========================================================= -->
+  <!-- HEADER (EXACT COPY FROM ABOUT.HTML) -->
+  <!-- ========================================================= -->
+  <header class="sticky top-0 z-50 w-full bg-white shadow-sm">
+    <div class="flex items-center justify-between px-6 py-4 mx-auto max-w-7xl">
+
+      <a class="flex items-center gap-3" href="index.html">
+        <img src="img/logo_lofish.png" alt="Lofish logo" class="object-contain h-10 rounded-md w-14" />
+        <div>
+          <h1 class="text-lg font-semibold">Lofish Travel &amp; Tours Ltd.</h1>
+          <p class="text-xs text-gray-500">Abia • Enugu • Anambra</p>
+        </div>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="items-center hidden gap-6 md:flex">
+
+        <!-- Services dropdown -->
+        <div class="relative" id="servicesDropdownWrapper">
+          <button id="servicesBtn" aria-expanded="false"
+            class="flex items-center gap-2 py-1 text-sm font-medium text-gray-700 focus:outline-none group">
+            Services
+            <i class="bi bi-chevron-down"></i>
+            <span
+              class="absolute left-0 bottom-0 h-0.5 bg-teal-500 transition-all duration-300 w-full"></span>
+          </button>
+
+          <div id="servicesDropdown"
+            class="absolute right-0 invisible w-56 mt-2 transition-all origin-top-right transform scale-95 bg-white rounded-md shadow-lg opacity-0 pointer-events-none ring-1 ring-black ring-opacity-5">
+            <div class="py-2">
+              <a href="visa.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-700/10">Visa Procurement</a>
+              <a href="flights.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-700/10">Flight Ticketing</a>
+              <a href="hotels.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-700/10">Hotel Reservations</a>
+              <a href="freight.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-700/10">Freight & Customs</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="about.html"
+          class="text-sm font-medium text-gray-700  transition relative group py-1">About
+          <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-teal-500 group-hover:w-full transition-all"></span>
+        </a>
+        <a href="contact.html"
+          class="text-sm font-medium text-gray-700  transition relative group py-1">Contact
+          <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-teal-500 group-hover:w-full transition-all"></span>
+        </a>
+
+        <button id="bookBtn"
+          class="px-4 py-2 ml-4 font-medium text-black transition rounded-md shadow bg-gold hover:brightness-95">
+          Book Now
+        </button>
+      </nav>
+
+      <!-- Mobile -->
+      <div class="flex items-center gap-2 md:hidden">
+        <button id="bookBtnMobile" class="px-3 py-2 text-sm font-medium text-black rounded-md bg-gold">Book</button>
+
+        <button id="menuBtn" aria-expanded="false" class="p-2 border rounded-md">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden border-t md:hidden">
+      <div class="px-4 py-4 space-y-3">
+
+        <div class="space-y-1">
+          <button id="mobileServicesBtn" aria-expanded="false"
+            class="flex items-center justify-between w-full px-3 py-2 text-left rounded-md hover:bg-royalBlue/5">
+            <span class="font-medium">Services</span>
+            <i class="bi bi-chevron-down text-gray-600"></i>
+          </button>
+
+          <div id="mobileServicesPanel" class="hidden pl-4 space-y-1">
+            <a href="visa.html" class="block px-3 py-2 text-sm rounded-md hover:bg-royalBlue/5">Visa Procurement</a>
+            <a href="flights.html" class="block px-3 py-2 text-sm rounded-md hover:bg-royalBlue/5">Flight Ticketing</a>
+            <a href="hotels.html" class="block px-3 py-2 text-sm rounded-md hover:bg-royalBlue/5">Hotel Reservations</a>
+            <a href="freight.html" class="block px-3 py-2 text-sm rounded-md hover:bg-royalBlue/5">Freight & Customs</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="block px-3 py-2 rounded-md hover:bg-royalBlue/5">About</a>
+        <a href="services.html" class="block px-3 py-2 rounded-md hover:bg-royalBlue/5">Services</a>
+        <a href="contact.html" class="block px-3 py-2 rounded-md hover:bg-royalBlue/5">Contact</a>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- ========================================================= -->
+  <!-- HERO SECTION -->
+  <!-- ========================================================= -->
+  <section class="relative overflow-hidden  bg-no-repeat bg-fixed bg-cover bg-center py-28" style="background-image:url('./img/services-hero.jpg');">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="relative z-10 max-w-4xl px-6 mx-auto text-center text-white">
+      <h1 class="mb-4 text-5xl font-extrabold">Our Services</h1>
+      <p class="text-lg text-gray-200">
+        Premium travel, logistics, and global mobility solutions tailored for individuals and corporations.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- SERVICES GRID -->
+  <!-- ========================================================= -->
+  <section class="px-6 py-20 mx-auto max-w-7xl">
+
+    <h2 class="text-3xl font-bold text-royalBlue mb-6">What We Offer</h2>
+    <p class="text-gray-600 max-w-2xl">
+      From visas to freight logistics, we provide seamless professional services backed by experience, speed, and reliability.
+    </p>
+
+    <div class="grid gap-8 mt-10 sm:grid-cols-2 lg:grid-cols-3">
+
+      <!-- CARD TEMPLATE -->
+      <!-- Repeatable block with slide-in teal animation -->
+
+      <!-- Visa Procurement -->
+      <article
+        class="relative p-6 overflow-hidden bg-white shadow rounded-xl hover:-translate-y-2 group transition-transform">
+        <span
+          class="absolute inset-0 bg-teal-800 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-in-out"></span>
+
+        <div class="relative flex items-center gap-4 group">
+          <div
+            class="flex items-center justify-center w-12 h-12 text-2xl bg-gold text-lightGold rounded-lg transition-all duration-500 group-hover:bg-gold/20 group-hover:text-gold">
+            <i class="bi bi-passport"></i>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-gray-800 group-hover:text-white transition-colors duration-500">
+              Visa Procurement
+            </h4>
+            <p class="text-sm text-gray-500 group-hover:text-teal-50 transition-colors duration-500">
+              Full support for all travel visas worldwide.
+            </p>
+          </div>
+        </div>
+
+        <div class="relative flex items-center justify-between mt-4 group">
+          <a href="visa.html"
+            class="text-sm text-teal-600 group-hover:text-teal-50 transition-colors duration-500">Learn more</a>
+          <button
+            class="px-3 py-1 text-white bg-teal-700 border border-teal-500 rounded-md group-hover:bg-white group-hover:text-teal-700 transition-all duration-500">
+            Request
+          </button>
+        </div>
+      </article>
+
+      <!-- Flight Ticketing -->
+      <article
+        class="relative p-6 overflow-hidden bg-white shadow rounded-xl hover:-translate-y-2 group transition-transform">
+        <span
+          class="absolute inset-0 bg-teal-800 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-in-out"></span>
+
+        <div class="relative flex items-center gap-4 group">
+          <div
+            class="flex items-center justify-center w-12 h-12 text-2xl bg-gold text-lightGold rounded-lg group-hover:bg-gold/20 group-hover:text-gold transition">
+            <i class="bi bi-airplane"></i>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-gray-800 transition-colors duration-500 group-hover:text-white">Flight
+              Ticketing</h4>
+            <p class="text-sm text-gray-500 transition-colors duration-500 group-hover:text-teal-50">Affordable
+              domestic and international flights.</p>
+          </div>
+        </div>
+
+        <div class="relative flex items-center justify-between mt-4 group">
+          <a href="flights.html"
+            class="text-sm text-teal-600 transition-colors duration-500 group-hover:text-teal-50">Learn more</a>
+          <button
+            class="px-3 py-1 text-white bg-teal-700 border border-teal-500 rounded-md group-hover:bg-white group-hover:text-teal-700 transition-all duration-500">
+            Request
+          </button>
+        </div>
+      </article>
+
+      <!-- Hotel Reservations -->
+      <article
+        class="relative p-6 overflow-hidden bg-white shadow rounded-xl hover:-translate-y-2 group transition-transform">
+        <span
+          class="absolute inset-0 bg-teal-800 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-in-out"></span>
+
+        <div class="relative flex items-center gap-4 group">
+          <div
+            class="flex items-center justify-center w-12 h-12 text-2xl bg-gold text-lightGold rounded-lg group-hover:bg-gold/20 group-hover:text-gold transition">
+            <i class="bi bi-building"></i>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-gray-800 group-hover:text-white transition-colors duration-500">Hotel
+              Reservations</h4>
+            <p class="text-sm text-gray-500 group-hover:text-teal-50 transition-colors duration-500">Exclusive hotel
+              deals and premium stays.</p>
+          </div>
+        </div>
+
+        <div class="relative flex items-center justify-between mt-4 group">
+          <a href="hotels.html"
+            class="text-sm text-teal-600 transition-colors duration-500 group-hover:text-teal-50">Learn more</a>
+          <button
+            class="px-3 py-1 text-white bg-teal-700 border border-teal-500 rounded-md group-hover:bg-white group-hover:text-teal-700 transition-all duration-500">
+            Request
+          </button>
+        </div>
+      </article>
+
+      <!-- Freight -->
+      <article
+        class="relative p-6 overflow-hidden bg-white shadow rounded-xl hover:-translate-y-2 group transition-transform">
+        <span
+          class="absolute inset-0 bg-teal-800 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-in-out"></span>
+
+        <div class="relative flex items-center gap-4 group">
+          <div
+            class="flex items-center justify-center w-12 h-12 text-2xl bg-gold text-lightGold rounded-lg group-hover:bg-gold/20 group-hover:text-gold transition">
+            <i class="bi bi-truck"></i>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-gray-800 group-hover:text-white transition-colors duration-500">Freight &
+              Customs</h4>
+            <p class="text-sm text-gray-500 group-hover:text-teal-50 transition-colors duration-500">
+              International shipping, clearing & logistics.</p>
+          </div>
+        </div>
+
+        <div class="relative flex items-center justify-between mt-4 group">
+          <a href="freight.html"
+            class="text-sm text-teal-600 group-hover:text-teal-50 transition-colors duration-500">Learn more</a>
+          <button
+            class="px-3 py-1 text-white bg-teal-700 border border-teal-500 rounded-md group-hover:bg-white group-hover:text-teal-700 transition-all duration-500">
+            Request
+          </button>
+        </div>
+      </article>
+
+      <!-- Study Abroad -->
+      <article
+        class="relative p-6 overflow-hidden bg-white shadow rounded-xl hover:-translate-y-2 group transition-transform">
+        <span
+          class="absolute inset-0 bg-teal-800 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-in-out"></span>
+
+        <div class="relative flex items-center gap-4 group">
+          <div
+            class="flex items-center justify-center w-12 h-12 text-2xl bg-gold text-lightGold rounded-lg group-hover:bg-gold/20 group-hover:text-gold transition">
+            <i class="bi bi-mortarboard"></i>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-gray-800 group-hover:text-white transition-colors duration-500">Study Abroad
+            </h4>
+            <p class="text-sm text-gray-500 group-hover:text-teal-50 transition-colors duration-500">Admissions,
+              counselling & documentation.</p>
+          </div>
+        </div>
+
+        <div class="relative flex items-center justify-between mt-4 group">
+          <a href="study.html"
+            class="text-sm text-teal-600 group-hover:text-teal-50 transition-colors duration-500">Learn more</a>
+          <button
+            class="px-3 py-1 text-white bg-teal-700 border border-teal-500 rounded-md group-hover:bg-white group-hover:text-teal-700 transition-all duration-500">
+            Request
+          </button>
+        </div>
+      </article>
+
+      <!-- Corporate Travel -->
+      <article
+        class="relative p-6 overflow-hidden bg-white shadow rounded-xl hover:-translate-y-2 group transition-transform">
+        <span
+          class="absolute inset-0 bg-teal-800 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-in-out"></span>
+
+        <div class="relative flex items-center gap-4 group">
+          <div
+            class="flex items-center justify-center w-12 h-12 text-2xl bg-gold text-lightGold rounded-lg group-hover:bg-gold/20 group-hover:text-gold transition">
+            <i class="bi bi-briefcase"></i>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-gray-800 group-hover:text-white transition-colors duration-500">Corporate
+              Travel</h4>
+            <p class="text-sm text-gray-500 group-hover:text-teal-50 transition-colors duration-500">Group travel,
+              retreats, delegations & business services.</p>
+          </div>
+        </div>
+
+        <div class="relative flex items-center justify-between mt-4 group">
+          <a href="corporate.html"
+            class="text-sm text-teal-600 group-hover:text-teal-50 transition-colors duration-500">Learn more</a>
+          <button
+            class="px-3 py-1 text-white bg-teal-700 border border-teal-500 rounded-md group-hover:bg-white group-hover:text-teal-700 transition-all duration-500">
+            Request
+          </button>
+        </div>
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- ========================================================= -->
+  <!-- CTA SECTION -->
+  <!-- ========================================================= -->
+  <section class="relative py-20 text-center text-white bg-fixed bg-center bg-cover"
+    style="background-image:url('./img/cta.jpg');">
+    <div class="absolute inset-0 bg-black/70"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-6">
+      <h2 class="text-4xl font-bold mb-4">Ready to Get Started?</h2>
+      <p class="text-lg text-blue-100 mb-6">
+        Our team is ready to help you plan, process, and execute your next move — anywhere in the world.
+      </p>
+
+      <a href="contact.html"
+        class="px-8 py-3 font-semibold text-black bg-gold rounded-md hover:bg-yellow-400 transition">
+        Contact Us
+      </a>
+    </div>
+  </section>
+
+
+
+  <!-- ========================================================= -->
+  <!-- FOOTER (EXACT COPY FROM ABOUT PAGE) -->
+  <!-- ========================================================= -->
+  <footer class="py-10 text-gray-300 bg-gray-900">
+    <div class="grid gap-8 px-6 mx-auto max-w-7xl md:grid-cols-3">
+      <div>
+        <h3 class="mb-4 text-xl font-bold text-gold">Lofish Global Travels</h3>
+        <p class="text-sm text-gray-400">
+          Empowering global experiences through trusted travel, education, and logistics services from Nigeria to the world.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="mb-4 text-xl font-bold text-gold">Quick Links</h3>
+        <div class="space-x-4 space-y-4 text-sm">
+          <a href="index.html" class="hover:text-gold">Home</a>
+          <a href="about.html" class="hover:text-gold">About</a>
+          <a href="services.html" class="hover:text-gold">Services</a>
+          <a href="contact.html" class="hover:text-gold">Contact</a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="mb-4 text-xl font-bold text-gold">Follow Us</h3>
+        <div class="flex gap-4 text-lg">
+          <a href="#" class="hover:text-gold"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="hover:text-gold"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="hover:text-gold"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="hover:text-gold"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="mx-auto mt-6 w-[95%]">
+    <div class="mt-10 text-sm text-center text-gray-500">
+      © 2025 Lofish Global Travels & Tours. All rights reserved.
+    </div>
+  </footer>
+
+
+
+  <!-- ========================================================= -->
+  <!-- SCRIPTS (EXACT COPY FROM ABOUT PAGE) -->
+  <!-- ========================================================= -->
+  <script>
+    // Header toggles
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const bookBtn = document.getElementById('bookBtn');
+    const bookBtnMobile = document.getElementById('bookBtnMobile');
+    const bookingModal = document.getElementById('bookingModal');
+    const closeModal = document.getElementById('closeModal');
+    const modalCancel = document.getElementById('modalCancel');
+
+    menuBtn?.addEventListener('click', () => {
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!expanded));
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Desktop Services dropdown
+    const servicesBtn = document.getElementById('servicesBtn');
+    const servicesDropdown = document.getElementById('servicesDropdown');
+    const servicesWrapper = document.getElementById('servicesDropdownWrapper');
+
+    function openServices() {
+      servicesDropdown.classList.remove('invisible', 'opacity-0', 'pointer-events-none', 'scale-95');
+      servicesDropdown.classList.add('visible', 'opacity-100', 'pointer-events-auto', 'scale-100');
+      servicesBtn.setAttribute('aria-expanded', 'true');
+    }
+    function closeServices() {
+      servicesDropdown.classList.add('invisible', 'opacity-0', 'pointer-events-none', 'scale-95');
+      servicesDropdown.classList.remove('visible', 'opacity-100', 'pointer-events-auto', 'scale-100');
+      servicesBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    servicesBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const expanded = servicesBtn.getAttribute('aria-expanded') === 'true';
+      if (expanded) closeServices();
+      else openServices();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!servicesWrapper.contains(e.target)) closeServices();
+    });
+
+    const mobileServicesBtn = document.getElementById('mobileServicesBtn');
+    const mobileServicesPanel = document.getElementById('mobileServicesPanel');
+    mobileServicesBtn?.addEventListener('click', () => {
+      const expanded = mobileServicesBtn.getAttribute('aria-expanded') === 'true';
+      mobileServicesBtn.setAttribute('aria-expanded', String(!expanded));
+      mobileServicesPanel.classList.toggle('hidden');
+    });
+
+    // Booking modal
+    ;[bookBtn, bookBtnMobile].forEach(b => b?.addEventListener('click', () => {
+      bookingModal.classList.remove('hidden');
+      bookingModal.querySelector('input')?.focus();
+    }));
+    closeModal?.addEventListener('click', () => bookingModal.classList.add('hidden'));
+    modalCancel?.addEventListener('click', () => bookingModal.classList.add('hidden'));
+    bookingModal?.addEventListener('click', (e) => {
+      if (e.target === bookingModal) bookingModal.classList.add('hidden');
+    });
+
+    // Reveal animation
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('opacity-100', 'translate-y-0');
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    document.querySelectorAll('article, section > .p-6').forEach(el => {
+      el.classList.add('opacity-0', 'translate-y-6', 'transition', 'duration-700');
+      obs.observe(el);
+    });
+  </script>
+
+</body>
+
+</html>

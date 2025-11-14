@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Lofish Global Travels & Tours</title>
+  <link rel="icon" type="image/png" href="img/logo_lofish.png" />
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* small helper to keep font consistent */
+    body { font-family: 'Lato', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+  </style>
+</head>
+<body class="antialiased text-gray-800 bg-teal-500/5">
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 w-full bg-white shadow-sm">
+    <div class="flex items-center justify-between px-6 py-4 mx-auto max-w-7xl">
+      <a class="flex items-center gap-3" href="index.html">
+        <img src="img/logo_lofish.png" alt="Lofish logo" class="object-contain h-10 rounded-md w-14" />
+        <div>
+          <h1 class="text-lg font-semibold">Lofish Travel &amp; Tours Ltd.</h1>
+          <p class="text-xs text-gray-500">Abia • Enugu • Anambra</p>
+        </div>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="items-center hidden gap-6 md:flex">
+        <!-- Services dropdown (desktop) -->
+        <div class="relative" id="servicesDropdownWrapper">
+          <button id="servicesBtn" aria-expanded="false" class="flex items-center gap-2 py-1 text-sm font-medium text-gray-700 hover:text-teal-500 focus:outline-none group">
+            Services 
+            <i class="bi bi-chevron-down"></i>
+            <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-teal-500 transition-all duration-300 group-hover:w-full"></span>
+          </button>
+
+          <!-- dropdown panel -->
+          <div id="servicesDropdown" class="absolute right-0 invisible w-56 mt-2 transition-all origin-top-right transform scale-95 bg-white rounded-md shadow-lg opacity-0 pointer-events-none ring-1 ring-black ring-opacity-5">
+            <div class="py-2">
+              <a href="visa.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-700/10">Visa Procurement</a>
+              <a href="flights.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-700/10">Flight Ticketing</a>
+              <a href="hotels.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-700/10">Hotel Reservations</a>
+              <a href="freight.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-700/10">Freight &amp; Customs</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="about.html" class="relative block py-1 mb-2 text-sm font-medium text-teal-500 transition-all duration-500 cursor-pointer md:mb-0 lg:text-left group">About
+          <span class="absolute left-0 bottom-0 h-0.5 bg-teal-500 transition-all duration-300 w-full"></span>
+        </a>
+        <a href="contact.html" class="relative block py-1 mb-2 text-sm font-medium text-gray-700 transition-all duration-500 cursor-pointer hover:text-teal-500 md:mb-0 lg:text-left group">Contact
+          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-teal-500 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+
+        <button id="bookBtn" class="px-4 py-2 ml-4 font-medium text-black transition rounded-md shadow bg-gold hover:brightness-95">Book Now</button>
+      </nav>
+
+      <!-- Mobile toggle -->
+      <div class="flex items-center gap-2 md:hidden">
+        <button id="bookBtnMobile" class="px-3 py-2 text-sm font-medium text-black rounded-md bg-gold">Book</button>
+        <button id="menuBtn" aria-expanded="false" class="p-2 border rounded-md">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu (collapsible) -->
+    <div id="mobileMenu" class="hidden border-t md:hidden">
+      <div class="px-4 py-4 space-y-3">
+        <!-- Services with collapsible submenu -->
+        <div class="space-y-1">
+          <button id="mobileServicesBtn" aria-expanded="false" class="flex items-center justify-between w-full px-3 py-2 text-left rounded-md hover:bg-royalblue/5">
+            <span class="font-medium">Services</span>
+            <svg class="w-4 h-4 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div id="mobileServicesPanel" class="hidden pl-4 space-y-1">
+            <a href="visa.html" class="block px-3 py-2 text-sm rounded-md hover:bg-royalblue/5">Visa Procurement</a>
+            <a href="flights.html" class="block px-3 py-2 text-sm rounded-md hover:bg-royalblue/5">Flight Ticketing</a>
+            <a href="hotels.html" class="block px-3 py-2 text-sm rounded-md hover:bg-royalblue/5">Hotel Reservations</a>
+            <a href="freight.html" class="block px-3 py-2 text-sm rounded-md hover:bg-royalblue/5">Freight &amp; Customs</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="block px-3 py-2 rounded-md hover:bg-royalblue/5">About</a>
+        <a href="contact.html" class="block px-3 py-2 rounded-md hover:bg-royalblue/5">Contact</a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- HERO SECTION -->
+  <section class="relative overflow-hidden bg-[url('https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1600&q=80')] bg-fixed bg-cover bg-center text-white py-32">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="relative z-10 max-w-4xl mx-auto text-center">
+        <h1 class="mb-4 text-5xl font-extrabold">About Lofish Global Travels & Tours</h1>
+        <p class="text-lg text-gray-200">Your trusted gateway to seamless journeys, global connections, and unforgettable experiences.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT STORY -->
+  <section class="grid items-center gap-10 px-6 py-20 mx-auto max-w-7xl md:grid-cols-2">
+    <div>
+      <h2 class="mb-4 text-3xl font-bold text-royalblue">Who We Are</h2>
+      <p class="mb-6 leading-relaxed text-gray-700">
+        Founded in Enugu, Nigeria, Lofish Global Travels & Tours is a premier travel management company providing end-to-end solutions for individuals, families, and corporations. Our expertise covers visa assistance, flight bookings, study abroad guidance, corporate travel management, and international freight logistics.
+      </p>
+      <p class="leading-relaxed text-gray-700">
+        With an unwavering commitment to trust, transparency, and excellence, we have built long-lasting relationships across Africa, Europe, Asia, and North America. We believe travel should be smooth, safe, and rewarding — and our dedicated team ensures every journey reflects that.
+      </p>
+    </div>
+    <div>
+      <img src="https://images.unsplash.com/photo-1500048993953-d23a436266cf?auto=format&fit=crop&w=900&q=80"
+           alt="Travel team" class="shadow-lg rounded-2xl">
+    </div>
+  </section>
+
+  <!-- MISSION & VISION -->
+  <section class="py-20 bg-gray-50">
+    <div class="grid items-center max-w-6xl gap-10 px-6 mx-auto md:grid-cols-2">
+      <div>
+        <img src="img/mission-vision.jpg"
+             alt="Vision and mission" class="shadow-lg rounded-2xl">
+      </div>
+      <div>
+        <h2 class="mb-4 text-3xl font-bold text-royalblue">Our Mission & Vision</h2>
+        <p class="mb-4 text-gray-700">
+          <strong>Mission:</strong> To deliver world-class travel solutions with integrity, professionalism, and innovation — helping clients explore opportunities globally.
+        </p>
+        <p class="text-gray-700">
+          <strong>Vision:</strong> To become Africa’s most trusted travel brand, connecting cultures, businesses, and dreams through exceptional travel experiences.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR VALUES -->
+  <section class="relative w-full px-6 py-20 mx-auto overflow-hidden text-center bg-fixed bg-center bg-cover " style="background-image:url('./img/parallax2.jpg');">
+    <div class="absolute inset-0 bg-teal-900 bg-opacity-70"></div>
+    <div class="relative z-10 mx-auto text-white max-w-7xl">
+        <h2 class="mb-12 text-3xl font-bold">Our Core Values</h2>
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="p-6 transition-transform bg-white shadow rounded-xl hover:-translate-y-2">
+            <i class="mb-3 text-4xl bi bi-heart-fill text-gold"></i>
+            <h3 class="mb-2 text-xl font-semibold text-gray-800">Integrity</h3>
+            <p class="text-sm text-gray-600">We uphold honesty and transparency in all our operations, ensuring clients’ peace of mind.</p>
+        </div>
+        <div class="p-6 transition-transform bg-white shadow rounded-xl hover:-translate-y-2">
+            <i class="mb-3 text-4xl bi bi-people-fill text-gold"></i>
+            <h3 class="mb-2 text-xl font-semibold text-gray-800">Customer Focus</h3>
+            <p class="text-sm text-gray-600">Your satisfaction is our priority — we tailor every service to fit your specific travel goals.</p>
+        </div>
+        <div class="p-6 transition-transform bg-white shadow rounded-xl hover:-translate-y-2">
+            <i class="mb-3 text-4xl bi bi-lightning-charge-fill text-gold"></i>
+            <h3 class="mb-2 text-xl font-semibold text-gray-800">Excellence</h3>
+            <p class="text-sm text-gray-600">We deliver prompt, reliable, and world-class services across all our departments.</p>
+        </div>
+        <div class="p-6 transition-transform bg-white shadow rounded-xl hover:-translate-y-2">
+            <i class="mb-3 text-4xl bi bi-globe2 text-gold"></i>
+            <h3 class="mb-2 text-xl font-semibold text-gray-800">Global Connection</h3>
+            <p class="text-sm text-gray-600">Our extensive partnerships worldwide help us offer seamless travel experiences across borders.</p>
+        </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- TEAM SECTION -->
+  <section class="py-20 bg-gray-50">
+    <div class="px-6 mx-auto text-center max-w-7xl">
+      <h2 class="mb-12 text-3xl font-bold text-royalblue">Meet Our Team</h2>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="p-6 bg-white shadow rounded-xl">
+            <img src="https://randomuser.me/api/portraits/men/37.jpg" class="w-24 h-24 mx-auto mb-4 rounded-full" alt="">
+            <h3 class="font-bold text-gray-800">Frank Ezeonya</h3>
+            <p class="mb-2 text-sm font-medium text-gold">Chief Executive Officer</p>
+            <p class="text-sm text-gray-600">Visionary leader driving company growth and innovation in travel services.</p>
+        </div>
+        <div class="p-6 bg-=white shadow rounded-xl">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-24 h-24 mx-auto mb-4 rounded-full" alt="">
+            <h3 class="font-bold text-gray-800">Amaka Okafor</h3>
+            <p class="mb-2 text-sm font-medium text-gold">Operations Manager</p>
+            <p class="text-sm text-gray-600">Oversees daily operations, ensuring efficiency and client satisfaction.</p>
+        </div>
+        <div class="p-6 bg-white shadow rounded-xl">
+            <img src="https://randomuser.me/api/portraits/women/47.jpg" class="w-24 h-24 mx-auto mb-4 rounded-full" alt="">
+            <h3 class="font-bold text-gray-800">Ogazi Uche</h3>
+            <p class="mb-2 text-sm font-medium text-gold">Deputy Human Resources Manager</p>
+            <p class="text-sm text-gray-600">Oversees talent acquisition, employee relations, and organizational development.</p>
+        </div>
+        <div class="p-6 bg-white shadow rounded-xl">
+          <img src="https://randomuser.me/api/portraits/men/60.jpg" class="w-24 h-24 mx-auto mb-4 rounded-full" alt="">
+          <h3 class="font-bold text-gray-800">Obasi Emmanuel</h3>
+          <p class="mb-2 text-sm font-medium text-gold">Head of Travel Operations</p>
+          <p class="text-sm text-gray-600">Specialist in visa and logistics management with 10+ years of experience.</p>
+        </div>
+        <div class="p-6 bg-white shadow rounded-xl">
+          <img src="https://randomuser.me/api/portraits/women/52.jpg" class="w-24 h-24 mx-auto mb-4 rounded-full" alt="">
+          <h3 class="font-bold text-gray-800">Lillian Nweke</h3>
+          <p class="mb-2 text-sm font-medium text-gold">Client Relations Manager</p>
+          <p class="text-sm text-gray-600">Ensuring top-tier customer satisfaction and service delivery at all stages.</p>
+        </div>
+        <div class="p-6 bg-white shadow rounded-xl">
+          <img src="https://randomuser.me/api/portraits/men/76.jpg" class="w-24 h-24 mx-auto mb-4 rounded-full" alt="">
+          <h3 class="font-bold text-gray-800">Francis Eze</h3>
+          <p class="mb-2 text-sm font-medium text-gold">Freight & Logistics Lead</p>
+          <p class="text-sm text-gray-600">Oversees cargo movement, customs clearance, and international freight handling.</p>
+        </div>
+        <div class="p-6 bg-white shadow rounded-xl">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-24 h-24 mx-auto mb-4 rounded-full" alt="">
+            <h3 class="font-bold text-gray-800">Chidimma Nwosu</h3>
+            <p class="mb-2 text-sm font-medium text-gold">Marketing Manager</p>
+            <p class="text-sm text-gray-600">Leads brand strategy, digital marketing, and customer engagement initiatives.</p>
+        </div>
+        <div class="p-6 bg-white shadow rounded-xl">
+            <img src="https://randomuser.me/api/portraits/men/40.jpg" class="" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="relative py-20 overflow-hidden text-center text-white bg-fixed bg-center bg-no-repeat bg-cover" style="background-image:url('./img/cta.jpg');">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative z-10 max-w-4xl px-6 mx-auto">
+      <h2 class="mb-4 text-4xl font-bold">Ready to Start Your Next Journey?</h2>
+      <p class="mb-6 text-lg text-blue-100">Join thousands of satisfied clients who trust Lofish Global Travels & Tours for seamless travel solutions.</p>
+      <a href="contact.html" class="px-8 py-3 font-semibold text-black transition rounded-md bg-gold hover:bg-yellow-400">
+        Contact Us Today
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 text-gray-300 bg-gray-900">
+    <div class="grid gap-8 px-6 mx-auto max-w-7xl md:grid-cols-3">
+      <div>
+        <h3 class="mb-4 text-xl font-bold text-gold">Lofish Global Travels</h3>
+        <p class="text-sm text-gray-400">Empowering global experiences through trusted travel, education, and logistics services from Nigeria to the world.</p>
+      </div>
+      <div>
+        <h3 class="mb-4 text-xl font-bold text-gold">Quick Links</h3>
+        <div class="space-x-4 space-y-4 text-sm">
+          <a href="index.html" class="hover:text-gold">Home</a>
+          <a href="about.html" class="hover:text-gold">About</a>
+          <a href="services.html" class="hover:text-gold">Services</a>
+          <a href="contact.html" class="hover:text-gold">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h3 class="mb-4 text-xl font-bold text-gold">Follow Us</h3>
+        <div class="flex gap-4 space-x-4 text-lg">
+          <a href="#" class="hover:text-gold"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="hover:text-gold"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="hover:text-gold"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="hover:text-gold"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="mx-auto mt-6 w-[95%]">
+    <div class="mt-10 text-sm text-center text-gray-500">© 2025 Lofish Global Travels & Tours. All rights reserved.</div>
+  </footer>
+<script>
+    // Header toggles
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const bookBtn = document.getElementById('bookBtn');
+    const bookBtnMobile = document.getElementById('bookBtnMobile');
+    const bookingModal = document.getElementById('bookingModal');
+    const closeModal = document.getElementById('closeModal');
+    const modalCancel = document.getElementById('modalCancel');
+
+    menuBtn?.addEventListener('click', () => {
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!expanded));
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Desktop Services dropdown
+    const servicesBtn = document.getElementById('servicesBtn');
+    const servicesDropdown = document.getElementById('servicesDropdown');
+    const servicesWrapper = document.getElementById('servicesDropdownWrapper');
+
+    function openServices() {
+      servicesDropdown.classList.remove('invisible','opacity-0','pointer-events-none','scale-95');
+      servicesDropdown.classList.add('visible','opacity-100','pointer-events-auto','scale-100');
+      servicesBtn.setAttribute('aria-expanded','true');
+    }
+    function closeServices() {
+      servicesDropdown.classList.add('invisible','opacity-0','pointer-events-none','scale-95');
+      servicesDropdown.classList.remove('visible','opacity-100','pointer-events-auto','scale-100');
+      servicesBtn.setAttribute('aria-expanded','false');
+    }
+
+    servicesBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const expanded = servicesBtn.getAttribute('aria-expanded') === 'true';
+      if (expanded) closeServices(); else openServices();
+    });
+
+    // Close dropdown if clicking outside
+    document.addEventListener('click', (e) => {
+      if (!servicesWrapper.contains(e.target)) closeServices();
+    });
+
+    // Mobile Services collapsible
+    const mobileServicesBtn = document.getElementById('mobileServicesBtn');
+    const mobileServicesPanel = document.getElementById('mobileServicesPanel');
+    mobileServicesBtn?.addEventListener('click', () => {
+      const expanded = mobileServicesBtn.getAttribute('aria-expanded') === 'true';
+      mobileServicesBtn.setAttribute('aria-expanded', String(!expanded));
+      mobileServicesPanel.classList.toggle('hidden');
+    });
+
+    // Booking modal toggles
+    ;[bookBtn, bookBtnMobile].forEach(b => b?.addEventListener('click', () => {
+      bookingModal.classList.remove('hidden');
+      // small focus trap
+      bookingModal.querySelector('input')?.focus();
+    }));
+    closeModal?.addEventListener('click', () => bookingModal.classList.add('hidden'));
+    modalCancel?.addEventListener('click', () => bookingModal.classList.add('hidden'));
+    bookingModal?.addEventListener('click', (e) => {
+      if (e.target === bookingModal) bookingModal.classList.add('hidden');
+    });
+
+    // Intersection observer for light reveal animations
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('opacity-100','translate-y-0');
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('article, section > .p-6, .bg-white/60').forEach(el => {
+      el.classList.add('opacity-0','translate-y-6','transition','duration-700');
+      obs.observe(el);
+    });
+
+    // Demo contact form submit
+    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert("Thanks — we'll reach out shortly!");
+      e.target.reset();
+    });
+
+
+  </script>
+</body>
+</html>
